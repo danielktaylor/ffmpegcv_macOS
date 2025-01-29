@@ -53,7 +53,7 @@ class FFmpegReaderStreamRT(FFmpegReader):
             f"ffmpeg -loglevel warning "
             f" {rtsp_opt} "
             "-fflags nobuffer -flags low_delay -strict experimental "
-            f" -vcodec {vid.codec} -i {stream_url}"
+            f" -hwaccel videotoolbox -i {stream_url}"
             f" {filteropt} -pix_fmt {pix_fmt}  -f rawvideo pipe:"
         )
 
